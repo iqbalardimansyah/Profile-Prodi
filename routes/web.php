@@ -20,3 +20,6 @@ Route::get('/', [LandingController::class, 'index']);
 Route::prefix('admin')->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
