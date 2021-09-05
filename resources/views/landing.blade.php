@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Rekayasa Perangkat Lunak</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('landing/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('landing/css/slick.css') }}">
@@ -18,8 +20,8 @@
         <div class="container logo">
             <div class="row">
                 <div class="col-md-12">
-                    <img src="images/UPI_EDUN.svg" alt="" height="60" width="60">
-                    <img src="images/logo_rpl.png" class="ml-4" alt="" height="60">
+                    <img src="{{ asset('landing/images/UPI_EDUN.svg') }}" alt="" height="60" width="60">
+                    <img src="{{ asset('landing/images/logo_rpl.png') }}" class="ml-4" alt="" height="60">
                 </div>
             </div>
         </div>
