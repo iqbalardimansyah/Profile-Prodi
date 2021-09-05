@@ -1,0 +1,61 @@
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700");
+@import url("../fonts/hustbee.css");
+/* -----------------------------------
+    1 - General Styles
+------------------------------------*/
+*, body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----------------------------------
+    3 - Top Content Styles
+-----------------------------------*/
+
+#top-content .page-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111a2b;
+}
+
+.main-slider .b-text {
+    font-size: 60px;
+    font-weight: 600;
+    color: #111a2b;
+    line-height: 65px;
+    letter-spacing: 1px;
+}
+
+.main-content {
+    padding-top: 40px;
+}
+
+.main-slider .m-text {
+    font-size: 23px;
+    font-weight: 300;
+    color: #111a2b;
+    margin-bottom: 55px;
+}
+
+.main-slider .img-holder {
+    text-align: center;
+}
+
+.logo {
+    margin-top: 40px;
+}
+
+.button-see-data {
+    background: #fdc800;
+    color: white;
+}
+
+.button-see-data:hover {
+    background: #e4b304;
+    color: white;
+}
