@@ -17,7 +17,14 @@ class CreatePartnersTable extends Migration
             $table->id();
             $table->string('company_name');
             $table->string('level')->comment("Internasional, Wilayah, Lokal");
+            $table->string('partner_type');
+            $table->text('benefits');
+            $table->string('duration_time');
+            $table->text('partner_proven');
+            $table->string('end_year');
+            $table->string('link_drive')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

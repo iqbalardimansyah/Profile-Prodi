@@ -1047,9 +1047,9 @@ dt {
   text-decoration: none;
 }
 
-#sidebar-menu > ul > li > a > span {
+/* #sidebar-menu > ul > li > a > span {
   margin-left: 7px;
-}
+} */
 
 #sidebar-menu > ul > li > a i {
   line-height: 1;

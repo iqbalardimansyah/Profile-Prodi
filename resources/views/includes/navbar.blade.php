@@ -7,14 +7,14 @@
                     <img src="{{ asset('landing/images/logo_rpl.png') }}" alt="" height="55">
                 </span>
             <span class="logo-sm">
-                    <i class="mdi mdi-camera-control"></i>
-                </span>
+                <i class="mdi mdi-camera-control"></i>
+            </span>
         </a>
     </div>
 
     <nav class="navbar-custom">
+        @auth
         <ul class="navbar-right list-inline float-right mb-0">
-
             <li class="dropdown notification-list list-inline-item">
                 <div class="dropdown notification-list nav-pro-img">
                     <a class="dropdown-toggle nav-link arrow-none nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -28,8 +28,8 @@
                     </div>
                 </div>
             </li>
-
         </ul>
+        @endauth
 
         <ul class="list-inline menu-left mb-0">
             <li class="float-left">

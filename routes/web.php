@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\LandingController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +21,9 @@ Route::get('/', [LandingController::class, 'index']);
 
 Route::prefix('admin')->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+    Route::get('/kerja-sama', [PartnerController::class, 'index'])->name('admin.partner.index');
+    Route::get('/kerja-sama/tambah', [PartnerController::class, 'add'])->name('admin.partner.add');
+    Route::post('/kerja-sama/tambah', [PartnerController::class, 'store'])->name('admin.partner.store');
 });
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();

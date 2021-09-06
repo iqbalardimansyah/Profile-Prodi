@@ -5,7 +5,7 @@
 
     <title>@yield('title') | Rekayasa Perangkat Lunak</title>
 
-    <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.ico') }}">
 
     @stack('before-styles')
     @include('includes.styles')

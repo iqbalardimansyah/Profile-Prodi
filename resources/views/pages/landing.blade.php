@@ -36,7 +36,7 @@
                                     <p>Program Studi S-1</p>
                                     <h3 class="b-text">Rekayasa</span><br>Perangkat Lunak</h3>
                                     <p class="m-text">Universitas Pendidikan Indonesia Kampus Daerah Cibiru</p>
-                                    <a href="#" class="btn btn-lg button-see-data">
+                                    <a href="{{ route('admin.dashboard.index') }}" class="btn btn-lg button-see-data">
                                         Lihat Data
                                     </a>
                                 </div>

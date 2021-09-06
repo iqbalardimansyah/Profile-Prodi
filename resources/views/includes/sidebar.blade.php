@@ -8,22 +8,40 @@
             <ul class="metismenu" id="side-menu">
                 <li class="menu-title">Menu</li>
                 <li>
-                    <a href="{{ route('admin.dashboard.index') }}" class="waves-effect {{ Request::segment(1) == "admin" ? "mm-active" : "" }}">
-                        <i class="icon-accelerator"></i><span> Dashboard </span>
+                    <a href="{{ route('admin.dashboard.index') }}" class="waves-effect {{ Request::segment(2) == "" ? "mm-active" : "" }}">
+                        <span> Dashboard </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Email <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><span> Infografik <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="email-inbox.html">Inbox</a></li>
-                        <li><a href="email-read.html">Email Read</a></li>
-                        <li><a href="email-compose.html">Email Compose</a></li>
+                        <li class="{{ Request::segment(2) == "kerja-sama" ? "mm-active" : "" }}"><a href="{{ route('admin.partner.index') }}">Kerjasama</a></li>
+                        <li><a href="email-read.html">Mahasiswa</a></li>
+                        <li><a href="email-compose.html">Sumber Daya Manusia</a></li>
+                        <li><a href="email-compose.html">Penggunaan Dana</a></li>
+                        <li><a href="email-compose.html">Penelitian</a></li>
+                        <li><a href="email-compose.html">Pengabdian Kepada Masyarakat</a></li>
+                        <li><a href="email-compose.html">Prestasi, Kegiatan, dan Luaran Mahasiswa</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="calendar.html" class="waves-effect"><i class="icon-calendar"></i><span> Calendar </span></a>
+                    <a href="calendar.html" class="waves-effect">
+                        <span> Laporan Kinerja Program Studi (LKPS) </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="calendar.html" class="waves-effect">
+                        <span> Laporan Evaluasi Diri (LED) </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="calendar.html" class="waves-effect">
+                        <span> Lampiran Akreditasi Program Studi </span>
+                    </a>
                 </li>
 
             </ul>
