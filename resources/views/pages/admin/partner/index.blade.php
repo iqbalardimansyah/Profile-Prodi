@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', "Dashboard") 
+@section('title', "Kerjasama") 
 
 @section('content')
 <!-- Start content -->
@@ -66,15 +66,21 @@
                                         <td>{{ $partner->end_year }}</td>
                                         <td>{{ $partner->link_drive ? $partner->link_drive : "Tidak ada link" }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-info btn-sm">
-                                                <li class="fa fa-info"></li>
-                                            </a>
-                                            <a href="#" class="btn btn-warning btn-sm">
-                                                <li class="fa fa-cut"></li>
-                                            </a>
-                                            <a href="#" class="btn btn-danger btn-sm">
-                                                <li class="fa fa-trash"></li>
-                                            </a>
+                                            <form action="{{ route('admin.partner.delete', encode($partner->id)) }}" method="POST" class="d-flex">
+                                                @csrf
+                                                @method("DELETE")
+
+                                                <a href="#" class="btn btn-info btn-sm mr-2">
+                                                    <li class="fa fa-info"></li>
+                                                </a>
+                                                <a href="{{ route('admin.partner.edit', encode($partner->id)) }}" class="btn btn-warning btn-sm">
+                                                    <li class="fa fa-cut"></li>
+                                                </a>
+
+                                                <button type="submit" class="btn btn-danger btn-sm ml-2">
+                                                    <li class="fa fa-trash"></li>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

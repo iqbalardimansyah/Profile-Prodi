@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', "Tambah Kerjasama") 
+@section('title', "Edit Kerjasama") 
 
 @section('content')
 <!-- Start content -->
@@ -8,14 +8,14 @@
         <div class="page-title-box">
             <div class="row align-items-center">
                 <div class="col-sm-6">
-                    <h4 class="page-title">Tambah Kerja Sama</h4>
+                    <h4 class="page-title">Edit Kerja Sama</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Rekayasa Perangkat Lunak</a></li>
                         <li class="breadcrumb-item">Infografik</li>
                         <li class="breadcrumb-item">Kerja Sama</li>
-                        <li class="breadcrumb-item active">Tambah</li>
+                        <li class="breadcrumb-item active">Edit</li>
                     </ol>
                 </div>
             </div>
@@ -27,13 +27,14 @@
             <div class="col-12">
                 <div class="card m-b-30">
                     <div class="card-body">
-                        <form action="{{ route('admin.partner.store') }}" method="POST">
+                        <form action="{{ route('admin.partner.update', encode($partner->id)) }}" method="POST">
                             @csrf
+                            @method("PUT")
                             
                             <div class="form-group row">
                                 <label for="company_name" class="col-sm-2 col-form-label">Lembaga Mitra</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" value="{{ old('company_name') }}" type="text" name="company_name" id="company_name" placeholder="Masukan Lembaga Mitra">
+                                    <input class="form-control" value="{{ $partner->company_name }}" type="text" name="company_name" id="company_name" placeholder="Masukan Lembaga Mitra">
                                     @error('company_name')
                                         <div class="form-control-feedback">{{ $errors->first('company_name') }}</div>
                                     @enderror
@@ -44,9 +45,9 @@
                                 <div class="col-sm-10">
                                     <select class="form-control" name="level" id="level">
                                         <option selected>Pilih Tingkat</option>
-                                        <option value="Internasional" {{ old('level') == "Internasional" ? 'selected' : '' }}>Internasional</option>
-                                        <option value="Nasional" {{ old('level') == "Nasional" ? 'selected' : '' }}>Nasional</option>
-                                        <option value="Wilayah/Lokal" {{ old('level') == "Wilayah/Lokal" ? 'selected' : '' }}>Wilayah/Lokal</option>
+                                        <option value="Internasional" {{ $partner->level == "Internasional" ? 'selected' : '' }}>Internasional</option>
+                                        <option value="Nasional" {{ $partner->level == "Nasional" ? 'selected' : '' }}>Nasional</option>
+                                        <option value="Wilayah/Lokal" {{ $partner->level == "Wilayah/Lokal" ? 'selected' : '' }}>Wilayah/Lokal</option>
                                     </select>
                                     @error('level')
                                         <div class="form-control-feedback">{{ $errors->first('level') }}</div>
@@ -56,7 +57,7 @@
                             <div class="form-group row">
                                 <label for="partner_type" class="col-sm-2 col-form-label">Judul Kegiatan</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" value="{{ old('partner_type') }}" type="text" name="partner_type" id="partner_type" placeholder="Masukan Judul Kegiatan Kerjasama">
+                                    <input class="form-control" value="{{ $partner->partner_type }}" type="text" name="partner_type" id="partner_type" placeholder="Masukan Judul Kegiatan Kerjasama">
                                     @error('partner_type')
                                         <div class="form-control-feedback">{{ $errors->first('partner_type') }}</div>
                                     @enderror
@@ -65,7 +66,7 @@
                             <div class="form-group row">
                                 <label for="benefits" class="col-sm-2 col-form-label">Manfaat</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" name="benefits" id="benefits" placeholder="Masukan manfaat dari PS yang diakreditasi" rows="6">{{ old('benefits') }}</textarea>
+                                    <textarea class="form-control" name="benefits" id="benefits" placeholder="Masukan manfaat dari PS yang diakreditasi" rows="6">{{ $partner->benefits }}</textarea>
                                     @error('benefits')
                                         <div class="form-control-feedback">{{ $errors->first('benefits') }}</div>
                                     @enderror
@@ -74,7 +75,7 @@
                             <div class="form-group row">
                                 <label for="duration_time" class="col-sm-2 col-form-label">Waktu dan Durasi</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" value="{{ old('duration_time') }}" type="text" name="duration_time" id="duration_time" placeholder="Masukan Waktu dan Durasi">
+                                    <input class="form-control" value="{{ $partner->duration_time }}" type="text" name="duration_time" id="duration_time" placeholder="Masukan Waktu dan Durasi">
                                     @error('duration_time')
                                         <div class="form-control-feedback">{{ $errors->first('duration_time') }}</div>
                                     @enderror
@@ -83,7 +84,7 @@
                             <div class="form-group row">
                                 <label for="partner_proven" class="col-sm-2 col-form-label">Bukti Kerjasama</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" name="partner_proven" id="partner_proven" placeholder="Masukan bukti kerjasama" rows="8">{{ old('partner_proven') }}</textarea>
+                                    <textarea class="form-control" name="partner_proven" id="partner_proven" placeholder="Masukan bukti kerjasama" rows="8">{{ $partner->partner_proven }}</textarea>
                                     @error('partner_proven')
                                         <div class="form-control-feedback">{{ $errors->first('partner_proven') }}</div>
                                     @enderror
@@ -92,7 +93,7 @@
                             <div class="form-group row">
                                 <label for="end_year" class="col-sm-2 col-form-label">Tahun Berakhir</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" value="{{ old('end_year') }}" type="text" name="end_year" id="end_year" placeholder="Masukan Tahun Berakhirnya Kerjasama">
+                                    <input class="form-control" value="{{ $partner->end_year }}" type="text" name="end_year" id="end_year" placeholder="Masukan Tahun Berakhirnya Kerjasama">
                                     @error('end_year')
                                         <div class="form-control-feedback">{{ $errors->first('end_year') }}</div>
                                     @enderror
@@ -101,7 +102,7 @@
                             <div class="form-group row">
                                 <label for="link_drive" class="col-sm-2 col-form-label">Link Google Drive</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" value="{{ old('link_drive') }}" type="text" name="link_drive" id="link_drive" placeholder="Masukan Link Google Drive (Opsional)">
+                                    <input class="form-control" value="{{ $partner->link_drive }}" type="text" name="link_drive" id="link_drive" placeholder="Masukan Link Google Drive (Opsional)">
                                     @error('link_drive')
                                         <div class="form-control-feedback">{{ $errors->first('link_drive') }}</div>
                                     @enderror
