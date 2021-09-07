@@ -44,6 +44,20 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="javascript:void(0);" class="waves-effect"><span> Laporan Kinerja Program Studi (LKPS) <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0);">Tabel 1 Kerjasama Pendidikan<span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="submenu">
+                                <li><a href="javascript:void(0);">Tabel 1-1</a></li>
+                                <li><a href="javascript:void(0);">Tabel 1-2</a></li>
+                                <li><a href="javascript:void(0);">Tabel 1-3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
 
         </div>
