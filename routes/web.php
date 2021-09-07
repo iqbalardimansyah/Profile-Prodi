@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\LandingController;
 use App\Models\Partner;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,8 @@ Route::prefix('admin')->group(function() {
     Route::post('/kerja-sama/tambah', [PartnerController::class, 'store'])->name('admin.partner.store');
     Route::put('/kerja-sama/edit/{id}', [PartnerController::class, 'update'])->name('admin.partner.update');
     Route::delete('/kerja-sama/{id}', [PartnerController::class, 'delete'])->name('admin.partner.delete');
+
+    Route::get('/laporan-kinerja', [ReportController::class, 'index'])->name('admin.report.index');
 });
 
 Auth::routes();

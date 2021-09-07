@@ -57,22 +57,31 @@
                             </thead>
 
                             <tbody>
+                                @php
+                                    $index = 0;
+                                @endphp 
                                 @foreach ($data as $partner)
                                     <tr>
                                         <td>{{ $partner->company_name }}</td>
                                         <td>{{ $partner->level }}</td>
                                         <td>{{ $partner->partner_type }}</td>
-                                        <td>{{ $partner->duration }}</td>
+                                        <td>{{ $partner->duration_time }}</td>
                                         <td>{{ $partner->end_year }}</td>
-                                        <td>{{ $partner->link_drive ? $partner->link_drive : "Tidak ada link" }}</td>
+                                        <td>
+                                            @if ($partner->link_drive)
+                                                <a href="{{ $partner->link_drive }}" target="_blank">{{ $partner->link_drive }}</a>
+                                            @else
+                                                Tidak ada data
+                                            @endif
+                                        </td>
                                         <td>
                                             <form action="{{ route('admin.partner.delete', encode($partner->id)) }}" method="POST" class="d-flex">
                                                 @csrf
                                                 @method("DELETE")
 
-                                                <a href="#" class="btn btn-info btn-sm mr-2">
+                                                <button type="button" data-toggle="modal" data-target="#modal_{{ $index }}" class="btn btn-info btn-sm mr-2">
                                                     <li class="fa fa-info"></li>
-                                                </a>
+                                                </button>
                                                 <a href="{{ route('admin.partner.edit', encode($partner->id)) }}" class="btn btn-warning btn-sm">
                                                     <li class="fa fa-cut"></li>
                                                 </a>
@@ -82,7 +91,51 @@
                                                 </button>
                                             </form>
                                         </td>
+                                        
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="modal_{{ $index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h6>Lembaga Mitra</h6>
+                                                    <p>{{ $partner->company_name }}</p>
+                                                    <h6>Tingkat</h6>
+                                                    <p>{{ $partner->level }}</p>
+                                                    <h6>Jenis Kegiatan Kerjasama</h6>
+                                                    <p>{{ $partner->partner_type }}</p>
+                                                    <h6>Manfaat bagi Program Studi diakreditasi</h6>
+                                                    <p>{{ $partner->benefits }}</p>
+                                                    <h6>Waktu dan Durasi</h6>
+                                                    <p>{{ $partner->duration_time }}</p>
+                                                    <h6>Bukti Kerjasama</h6>
+                                                    <p>{{ $partner->partner_proven }}</p>
+                                                    <h6>Tahun Berakhirnya Kerjasama</h6>
+                                                    <p>{{ $partner->end_year }}</p>
+                                                    <h6>Link Drive</h6>
+                                                    <p>
+                                                        @if ($partner->link_drive)
+                                                            <a href="{{ $partner->link_drive }}" target="_blank">{{ $partner->link_drive }}</a>
+                                                        @else
+                                                            Tidak ada data
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
                                     </tr>
+                                    @php
+                                        $index++;
+                                    @endphp
                                 @endforeach
                             </tbody>
                         </table>
@@ -92,7 +145,6 @@
         </div> <!-- end row -->
     </div>
     <!-- container-fluid -->
-
 </div>
 <!-- content -->
 @endsection

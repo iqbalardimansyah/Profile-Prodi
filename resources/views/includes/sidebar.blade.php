@@ -16,7 +16,7 @@
                 <li>
                     <a href="javascript:void(0);" class="waves-effect"><span> Infografik <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li class="{{ Request::segment(2) == "kerja-sama" ? "mm-active" : "" }}"><a href="{{ route('admin.partner.index') }}">Kerjasama</a></li>
+                        <li><a href="#">Kerjasama</a></li>
                         <li><a href="email-read.html">Mahasiswa</a></li>
                         <li><a href="email-compose.html">Sumber Daya Manusia</a></li>
                         <li><a href="email-compose.html">Penggunaan Dana</a></li>
@@ -27,7 +27,7 @@
                 </li>
 
                 <li>
-                    <a href="calendar.html" class="waves-effect">
+                    <a href="{{ route('admin.report.index') }}" class="{{ Request::segment(2) == "laporan-kinerja" ? "mm-active" : "" }} waves-effect">
                         <span> Laporan Kinerja Program Studi (LKPS) </span>
                     </a>
                 </li>
@@ -50,7 +50,7 @@
                         <li>
                             <a href="javascript:void(0);">Tabel 1 Kerjasama Pendidikan<span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="submenu">
-                                <li><a href="javascript:void(0);">Tabel 1-1</a></li>
+                                <li class="{{ Request::segment(2) == "kerja-sama" ? "mm-active" : "" }}"><a href="{{ route('admin.partner.index') }}">Tabel 1-1</a></li>
                                 <li><a href="javascript:void(0);">Tabel 1-2</a></li>
                                 <li><a href="javascript:void(0);">Tabel 1-3</a></li>
                             </ul>
