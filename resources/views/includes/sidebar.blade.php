@@ -51,7 +51,7 @@
                             <a href="javascript:void(0);">Tabel 1 Kerjasama <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="submenu">
                                 <li class="{{ Request::segment(2) == "kerja-sama" ? "mm-active" : "" }}"><a href="{{ route('admin.partner.index') }}">1-1 Pendidikan</a></li>
-                                <li><a href="javascript:void(0);">1-2 Penelitian</a></li>
+                                <li class="{{ Request::segment(2) == "kerja-sama-penelitian" ? "mm-active" : "" }}"><a href="{{ route('admin.partner_researches.index') }}">1-2 Penelitian</a></li>
                                 <li ><a href="javascript:void(0);">1-3 PkM</a></li>
                             </ul>
                         </li>

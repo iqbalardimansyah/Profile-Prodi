@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\TbPartnerResearchesController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\LandingController;
 use App\Models\Partner;
@@ -30,7 +31,15 @@ Route::prefix('admin')->group(function() {
     Route::put('/kerja-sama/edit/{id}', [PartnerController::class, 'update'])->name('admin.partner.update');
     Route::delete('/kerja-sama/{id}', [PartnerController::class, 'delete'])->name('admin.partner.delete');
 
+    Route::get('/kerja-sama-penelitian', [TbPartnerResearchesController::class, 'index'])->name('admin.partner_researches.index');
+    Route::get('/kerja-sama-penelitian/tambah', [TbPartnerResearchesController::class, 'add'])->name('admin.partner_researches.add');
+    Route::post('/kerja-sama-penelitian/tambah', [TbPartnerResearchesController::class, 'store'])->name('admin.partner_researches.store');
+    Route::get('/kerja-sama-penelitian/edit/{id}', [TbPartnerResearchesController::class, 'edit'])->name('admin.partner_researches.edit');
+    Route::put('/kerja-sama-penelitian/edit/{id}', [TbPartnerResearchesController::class, 'update'])->name('admin.partner_researches.update');
+    Route::delete('/kerja-sama-penelitian/{id}', [TbPartnerResearchesController::class, 'delete'])->name('admin.partner_researches.delete');
+
     Route::get('/laporan-kinerja', [ReportController::class, 'index'])->name('admin.report.index');
+    
 });
 
 Auth::routes();
